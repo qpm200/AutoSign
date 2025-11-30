@@ -14,6 +14,24 @@ def getconfig():
     path = os.path.dirname(os.path.realpath(__file__))
     with open(f'{path}/config.yaml', 'r', encoding='utf-8') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
+    
+    # 从环境变量加载配置，覆盖yaml文件中的配置
+    for key in os.environ:
+        if key.startswith('CONFIG_'):
+            # 解析环境变量，格式如 CONFIG_Push_Qmsg_key=value
+            parts = key[7:].split('_')
+            current = config
+            for part in parts[:-1]:
+                if part not in current:
+                    current[part] = {}
+                current = current[part]
+            current[parts[-1]] = os.environ[key]
+        elif key.startswith('SWITCH_'):
+            # 处理开关配置，格式如 SWITCH_MiUI=true
+            service = key[7:]
+            if service in config['SignToken']:
+                config['SignToken'][service]['switch'] = os.environ[key].lower() == 'true'
+    
     return config
 
 def run():

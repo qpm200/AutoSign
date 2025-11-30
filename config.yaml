@@ -1,0 +1,60 @@
+Push:
+  # 推送方式
+  # 支持qmsg酱 server酱 企业微信推送 钉钉机器人推送
+  # Qmsg,Server,Epwc,Dingtalk,Wxhook
+  # 为空或False则不进行推送
+  PushMode: Qmsg
+  Qmsg:
+    key: ""
+  Server:
+    key: "your server key"
+  Epwc:
+    EnterpriseId: ""
+    AppId: ""
+    AppSecret: ""
+    UserUid: ""
+  Dingtalk:
+    token:
+    secret:
+    atuser:
+    atMobiles: 
+    isAtAll: False
+  Wxhook:
+    url: ""
+
+SignToken:
+  Hykb:
+    switch: False
+    cookie:
+  MiUI:
+    switch: False
+    username:
+    password:
+  XiaoHeiHe:
+    switch: true
+    cookie: pkey=MTc2NDQ4NDI1NS4wNV82MzEwODAzMmRuY29wbXVlZXN3b3BvYWg__;x_xhh_tokenid=BDBFRAfgNfc6H0tvTxb1gfLOP30u1pvh187IqvixGNQv3Qdqi0YOdytq9BCd+iks4MU6V9widSRlEIdpfpMDjqQ==
+    imei: 004f79b40e14e92b
+    heybox_id: 63108032
+    version: 1.3.373
+  JiaoYiMao:
+    switch: False
+    cookie:
+  Tyyp:
+    switch: False
+    username:
+    password:
+  wyyyx:
+    switch: False
+    cookie: 
+  # 请在阿里云盘网页端输入后面代码获取：JSON.parse(localStorage.getItem("token")).refresh_token
+  Aliyundrive:
+    switch: False
+    token: 
+  # 明日方舟配置 打开森空岛网页 登录账号, 打开https://web-api.skland.com/account/info/hg, 复制 content 的值
+  Arknights:
+    switch: False
+    token: 
+  # 雨云配置
+  Raincloud:
+    switch: False
+    token: 
